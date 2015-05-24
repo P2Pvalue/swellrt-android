@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="src_service"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/async-http-client-1.8.14.jar"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/grizzly-framework-2.3.18.jar"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/grizzly-http-2.3.18.jar"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/grizzly-websockets-2.3.18.jar"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/gson-2.2.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/guava-15.0-sliced.jar"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/jsr305-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/protobuf-java-2.5.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/slf4j-android-1.6.1-RC1.jar"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/swellrt-android-dep-0.1.jar" sourcepath="/swellrt/src"/>
+	<classpathentry exported="true" kind="lib" path="/swellrt/android/libs/wasync-1.4.3.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

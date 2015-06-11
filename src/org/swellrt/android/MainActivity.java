@@ -12,6 +12,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -32,6 +33,9 @@ public class MainActivity extends Activity implements ServiceConnection, SwellRT
   private EditText txtUserName;
   private EditText txtUserPassword;
   private Button btnLogin;
+  private Button btnRegister;
+
+  AsyncTask<String, Void, Boolean> mRegisterTask;
 
   protected void bindSwellRTService() {
 
@@ -67,16 +71,49 @@ public class MainActivity extends Activity implements ServiceConnection, SwellRT
     txtUserName = (EditText) findViewById(R.id.input_user_name);
     txtUserPassword = (EditText) findViewById(R.id.input_user_pass);
 
+    mRegisterTask = new AsyncTask<String, Void, Boolean>() {
+
+      @Override
+      protected Boolean doInBackground(String... params) {
+        return mSwellRT.registerUser(params[0], params[1], params[2]);
+      }
+
+      @Override
+      protected void onPostExecute(Boolean result) {
+        if (result)
+          Toast.makeText(MainActivity.this, "User created successfully", Toast.LENGTH_LONG).show();
+        else
+          Toast.makeText(MainActivity.this, "Error creating user", Toast.LENGTH_LONG).show();
+      }
+    };
+
+    btnRegister = (Button) findViewById(R.id.button_register_user);
+    btnRegister.setOnClickListener(new OnClickListener() {
+
+      @Override
+      public void onClick(View v) {
+        mRegisterTask.execute(txtServerUrl.getText().toString(), txtUserName.getText().toString(),
+            txtUserPassword.getText().toString());
+
+      }
+
+    });
+    btnRegister.setEnabled(false);
+
     bindSwellRTService();
 
   }
 
+
   @Override
-  public void onStop() {
-    super.onStop();
-    if (mSwellRT != null)
+  public void onDestroy() {
+    super.onDestroy();
+    if (mSwellRT != null) {
       unbindService(this);
+      mSwellRT = null;
+    }
   }
+
 
   private void doStartSession() {
 
@@ -107,6 +144,9 @@ public class MainActivity extends Activity implements ServiceConnection, SwellRT
     Log.d(this.getClass().getSimpleName(), "SwellRT Service Bound");
 
     btnLogin.setEnabled(!mSwellRT.isSessionStarted());
+    btnRegister.setEnabled(!mSwellRT.isSessionStarted());
+
+
   }
 
   @Override

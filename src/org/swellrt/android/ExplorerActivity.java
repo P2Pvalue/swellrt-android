@@ -37,7 +37,6 @@ public class ExplorerActivity extends Activity implements ServiceConnection, Swe
   protected void bindSwellRTService() {
 
     if (mSwellRT == null) {
-
       final Intent mWaveServiceIntent = new Intent(this, SwellRTService.class);
       bindService(mWaveServiceIntent, this, Context.BIND_AUTO_CREATE);
 
@@ -109,9 +108,12 @@ public class ExplorerActivity extends Activity implements ServiceConnection, Swe
   }
 
   @Override
-  public void onStop() {
-    super.onStop();
-    unbindService(this);
+  public void onDestroy() {
+    super.onDestroy();
+    if (mSwellRT != null) {
+      unbindService(this);
+      mSwellRT = null;
+    }
   }
 
 

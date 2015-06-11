@@ -82,8 +82,11 @@ public class SelectModelActivity extends Activity implements ServiceConnection,
 
     // Intents
 
+    // mExplorerIntent = new Intent(getApplicationContext(),
+    // org.swellrt.android.ExplorerActivity.class);
+
     mExplorerIntent = new Intent(getApplicationContext(),
-        org.swellrt.android.ExplorerActivity.class);
+ org.swellrt.android.EditorActivity.class);
 
     btnCreate = (Button) findViewById(R.id.button_create_model);
     btnCreate.setOnClickListener(new OnClickListener() {
@@ -145,9 +148,12 @@ public class SelectModelActivity extends Activity implements ServiceConnection,
   }
 
   @Override
-  public void onStop() {
-    super.onStop();
-    unbindService(this);
+  public void onDestroy() {
+    super.onDestroy();
+    if (mSwellRT != null) {
+      unbindService(this);
+      mSwellRT = null;
+    }
   }
 
 

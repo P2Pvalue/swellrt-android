@@ -7,7 +7,7 @@ Modules in this project are:
 - **Demo Android app** (/swell-android-demo)
 
 *This project is unstable yet, changes in the API syntax are expected.
-Also it only works with Long-Polling for now.*
+Transport protocol is long-polling.*
 
 # Using SwellRT in your Android App
 

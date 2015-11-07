@@ -1,0 +1,1 @@
+include ':swellrt-client-android', ':swellrt-android-demo'

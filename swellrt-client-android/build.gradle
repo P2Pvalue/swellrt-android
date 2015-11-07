@@ -1,0 +1,61 @@
+apply plugin: 'com.android.library'
+
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 19
+        versionCode 1
+        versionName "0.1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // Consider to use ProGuard to slice Guava library in Debug
+            //
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Workaround for library module dependencies. See https://code.google.com/p/android/issues/detail?id=52962
+    publishNonDefault true
+}
+
+dependencies {
+
+    // compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'org.slf4j:slf4j-android:1.6.1-RC1'
+    // Google
+    compile 'com.google.code.gson:gson:2.2.4'
+
+    // Use this if ProGuard is active
+    // compile 'com.google.guava:guava:15.0'
+
+    // Use this if ProGuard is no active
+    // Check jartools/ to know how to create this sliced jar
+    compile files('libs/guava-15.0-sliced.jar')
+
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
+    compile 'com.google.protobuf:protobuf-java:2.5.0'
+
+    // WAsync
+    compile ('org.atmosphere:wasync:1.4.3') {
+        // Slf4j for Android must be used
+        exclude group: 'org.slf4j'
+    }
+    // Grizzly
+    compile 'org.glassfish.grizzly:grizzly-framework:2.3.18'
+    compile 'org.glassfish.grizzly:grizzly-http:2.3.18'
+    compile 'org.glassfish.grizzly:grizzly-websockets:2.3.18'
+
+    // SwellRT
+    compile 'org.swellrt:swellrt-client-commons:0.12.0-alpha'
+}

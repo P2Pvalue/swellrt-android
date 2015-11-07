@@ -1,7 +1,8 @@
 # SwellRT Android
 
-This is an Android Studio to develop and try the **SwellRT client for Android**.
-Modules in this project are:
+This is an Android Studio Project to develop and try the **SwellRT client for Android**.
+
+Project modules are:
 
 - **SwellRT Client Library for Android** (/swell-client-android)
 - **Demo Android app** (/swell-android-demo)

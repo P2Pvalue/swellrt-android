@@ -83,10 +83,10 @@ public class SelectModelActivity extends Activity implements ServiceConnection,
     // Intents
 
     // Uncomment this to try real-time data model
-    mExplorerIntent = new Intent(getApplicationContext(), org.swellrt.android.ExplorerActivity.class);
+    // mExplorerIntent = new Intent(getApplicationContext(), org.swellrt.android.ExplorerActivity.class);
 
     // Uncomment this to try the real-time Editor ( Unstable)
-    // mExplorerIntent = new Intent(getApplicationContext(), org.swellrt.android.EditorActivity.class);
+    mExplorerIntent = new Intent(getApplicationContext(), org.swellrt.android.EditorActivity.class);
 
     btnCreate = (Button) findViewById(R.id.button_create_model);
     btnCreate.setOnClickListener(new OnClickListener() {

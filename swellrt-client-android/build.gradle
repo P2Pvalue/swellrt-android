@@ -58,4 +58,6 @@ dependencies {
 
     // SwellRT
     compile 'org.swellrt:swellrt-client-commons:0.12.0-alpha'
+
+    compile 'com.android.support:support-v4:19.0.+'
 }

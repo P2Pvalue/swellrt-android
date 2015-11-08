@@ -25,23 +25,31 @@ shared code between SwellRT server and clients.
 You must build this library cloning the [SwellRT project](https://github.com/P2Pvalue/swellrt)
 and following these steps:
 
+
 Build *swellrt-client-commons* library Jar using the Ant script in the SwellRT project's folder:
 
 ```
-$ant -f build-swellrt.xml dist-swellrt-client-commons
+ant -f build-swellrt.xml dist-swellrt-client-commons
 ```
 
-Install Jar library as Maven artifact locally
+The Jar. library will be generated in the folder `build/swellrt/swellrt-client-commons-XX.YY.ZZ-alpha.jar`
+
+In order to *swellrt-android* resolve this dependency make it avaible through a Maven repository. 
+Following steps requires the Maven command-line tool "mvn" available in the system PATH.
+
+Install Jar library as Maven artifact in the local Maven Repository
 
 ```
-$ant -f build-swellrt.xml swellrt-mvn-install-client-commons
+ant -f build-swellrt.xml swellrt-mvn-install-client-commons
 ```
 
-Or deploy the maven artifact in a remote repository
+Or deploy the maven artifact in a remote Maven repository. Please edit `build-swellrt.xml` to configure
+target repo.
 
 ```
-$ant -f build-swellrt.xml swellrt-mvn-deploy-client-commons
+ant -f build-swellrt.xml swellrt-mvn-deploy-client-commons
 ```
+
 
 Please, check the version of the generated artifact and update the dependency accordingly
 in the *swellrt-client-android/build.gradle* file:

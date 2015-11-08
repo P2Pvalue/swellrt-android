@@ -67,8 +67,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/build/classes" />
-      <excludeFolder url="file://$MODULE_DIR$/build/dependency-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
@@ -94,17 +92,18 @@
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="grizzly-framework-2.3.18" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
+    <orderEntry type="library" exported="" name="grizzly-websockets-2.3.18" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-19.0.1" level="project" />
+    <orderEntry type="library" exported="" name="wasync-1.4.3" level="project" />
+    <orderEntry type="library" exported="" name="netty-3.9.2.Final" level="project" />
     <orderEntry type="library" exported="" name="guava-15.0-sliced" level="project" />
     <orderEntry type="library" exported="" name="grizzly-http-2.3.18" level="project" />
-    <orderEntry type="library" exported="" name="protobuf-java-2.5.0" level="project" />
-    <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
     <orderEntry type="library" exported="" name="swellrt-client-commons-0.12.0-alpha" level="project" />
+    <orderEntry type="library" exported="" name="protobuf-java-2.5.0" level="project" />
     <orderEntry type="library" exported="" name="jsr305-2.0.1" level="project" />
-    <orderEntry type="library" exported="" name="grizzly-websockets-2.3.18" level="project" />
     <orderEntry type="library" exported="" name="async-http-client-1.8.14" level="project" />
-    <orderEntry type="library" exported="" name="wasync-1.4.3" level="project" />
     <orderEntry type="library" exported="" name="slf4j-android-1.6.1-RC1" level="project" />
-    <orderEntry type="library" exported="" name="netty-3.9.2.Final" level="project" />
   </component>
 </module>
 

@@ -1,18 +1,20 @@
 package org.swellrt.android;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
 import org.swellrt.android.service.SwellRTActivity;
+import org.swellrt.android.service.SwellRTFragmentActivity;
 import org.swellrt.android.service.WaveDocEditorBinder;
 import org.swellrt.model.generic.Model;
 import org.swellrt.model.generic.TextType;
 import org.swellrt.model.generic.Type;
 
-public class EditorActivity extends SwellRTActivity {
+public class EditorActivity extends SwellRTFragmentActivity implements AddUserDialogFragment.Listener {
 
   private EditText mEditor;
   private String mModelId;
@@ -20,6 +22,7 @@ public class EditorActivity extends SwellRTActivity {
   private TextType mText;
 
   private WaveDocEditorBinder mDocBinder;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,14 @@ public class EditorActivity extends SwellRTActivity {
       getService().closeModel(mModelId);
       NavUtils.navigateUpFromSameTask(this);
       return true;
+
+    case R.id.action_adduser:
+
+        DialogFragment dialogFragment = new AddUserDialogFragment();
+        dialogFragment.show(getSupportFragmentManager(), "addusertag");
+
+        return true;
+
 
     default:
       return super.onOptionsItemSelected(item);
@@ -85,4 +96,13 @@ public class EditorActivity extends SwellRTActivity {
 
   }
 
+    @Override
+    public void onAddUserDialogAdd(String user) {
+        mModel.addParticipant(user);
+    }
+
+    @Override
+    public void onAddUserDialogCancel() {
+
+    }
 }
